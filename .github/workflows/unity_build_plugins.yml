@@ -11,6 +11,12 @@ on:
         - "2"
         - "3"
         default: '1'
+      config_v8_10:
+        type: choice
+        options:
+        - Release
+        - Debug
+        default: 'Debug'
   push:
     paths: 
       - unity/native_src/**
@@ -49,6 +55,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildAndroidQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/android/
@@ -89,6 +96,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOHOSQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
@@ -116,6 +124,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildiOSQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
@@ -148,6 +157,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOSXNodejs
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
@@ -180,6 +190,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
@@ -212,6 +223,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
+          config: ${{ github.event.inputs.config_v8_10 || 'Debug' }}
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
