@@ -11,6 +11,13 @@ on:
         - "2"
         - "3"
         default: '1'
+      config:
+        type: choice
+        description: Release Or Debug
+        options:
+        - "Release"
+        - "Debug"
+        default: 'Release'
   push:
     paths: 
       - unity/native_src/**
@@ -43,27 +50,32 @@ jobs:
       - name: BuildAndroid
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildAndroid_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildAndroidQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildAndroidNodeJS
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: nodejs_16
       - name: BuildAndroidMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
           
@@ -83,22 +95,26 @@ jobs:
       - name: BuildOHOS
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildOHOS_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOHOSQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildOHOSMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
 
@@ -110,27 +126,32 @@ jobs:
       - name: BuildiOS
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildiOS_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildiOSQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildiOSNodeJS
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: nodejs_16
       - name: BuildiOSMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
 
@@ -142,27 +163,32 @@ jobs:
       - name: BuildOSX
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildOSX_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOSXNodejs
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: nodejs_16
       - name: BuildOSXQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildOSXMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
 
@@ -174,27 +200,32 @@ jobs:
       - name: BuildWindows
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildWindows_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildWindowsNodeJS
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: nodejs_16
       - name: BuildWindowsMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
 
@@ -206,27 +237,32 @@ jobs:
       - name: BuildLinux
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
       - name: BuildLinux_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
           websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
       - name: BuildLinuxNodeJS
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: nodejs_16
       - name: BuildLinuxMultBackend
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: mult
           
@@ -238,5 +274,6 @@ jobs:
       - name: BuildWasm
         uses: ./.github/workflows/composites/unity-build-plugins/wasm/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: quickjs
