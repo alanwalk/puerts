@@ -416,6 +416,21 @@ jobs:
         run: |
           cp $GITHUB_WORKSPACE/LICENSE $GITHUB_WORKSPACE/unity/Assets/core/upm
           ls -l $GITHUB_WORKSPACE/unity/Assets/core/upm
+          if [ ! -d "V8" ]; then
+            mkdir V8
+          fi
+          if [ ! -d "V8_10" ]; then
+            mkdir V8_10
+          fi
+          if [ ! -d "Quickjs" ]; then
+            mkdir Quickjs
+          fi
+          if [ ! -d "Nodejs" ]; then
+            mkdir Nodejs
+          fi
+          if [ ! -d "Mult" ]; then
+            mkdir Mult
+          fi
           cd V8/ && cp -r $GITHUB_WORKSPACE/unity/Assets/core/upm . && tar cvfz ../PuerTS_V8_${{ github.event.inputs.tag_name }}.tgz upm && cd -
           cd V8_10/ && cp -r $GITHUB_WORKSPACE/unity/Assets/core/upm . && tar cvfz ../PuerTS_V8_10_${{ github.event.inputs.tag_name }}.tgz upm && cd -
           cd Quickjs/ && cp -r $GITHUB_WORKSPACE/unity/Assets/core/upm . && tar cvfz ../PuerTS_Quickjs_${{ github.event.inputs.tag_name }}.tgz upm && cd -
