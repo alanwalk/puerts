@@ -6,6 +6,13 @@ on:
       tag_name:
         description: 'tag name'     
         required: true
+      config:
+        type: choice
+        description: Release Or Debug
+        options:
+        - "Release"
+        - "Debug"
+        default: 'Release'
 
 env:
   RUNID: 613573412
@@ -28,6 +35,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -38,6 +46,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -48,6 +57,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -58,6 +68,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: nodejs_16
       - name: reset
         shell: bash
@@ -68,6 +79,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
   
   ohos:
@@ -87,6 +99,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -97,6 +110,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -107,6 +121,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -117,6 +132,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
 
   ios:
@@ -128,6 +144,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -138,6 +155,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -148,6 +166,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -158,6 +177,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: nodejs_16
       - name: reset
         shell: bash
@@ -168,6 +188,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
 
   osx:
@@ -179,6 +200,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -189,6 +211,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -199,6 +222,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: nodejs_16
       - name: reset
         shell: bash
@@ -209,6 +233,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -219,6 +244,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
 
   windows:
@@ -230,6 +256,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -240,6 +267,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -250,6 +278,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -260,6 +289,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: nodejs_16
       - name: reset
         shell: bash
@@ -270,6 +300,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
 
   linux64:
@@ -281,6 +312,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_9.4
       - name: reset
         shell: bash
@@ -291,6 +323,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: v8_10.6.194
       - name: reset
         shell: bash
@@ -301,6 +334,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
       - name: reset
         shell: bash
@@ -311,6 +345,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: nodejs_16
       - name: reset
         shell: bash
@@ -321,6 +356,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: mult
           
   wasm:
@@ -332,6 +368,7 @@ jobs:
         uses: ./.github/workflows/composites/unity-build-plugins/wasm/
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: ${{ github.event.inputs.config }}
           backend: quickjs
 
   publish:
