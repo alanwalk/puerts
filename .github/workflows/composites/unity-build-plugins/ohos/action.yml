@@ -13,7 +13,7 @@ inputs:
     - Debug
   websocket:
     description: enable websocket
-    default: '1'
+    default: '3'
   build_proj_dir:
     description: 'build project dir'     
     required: false

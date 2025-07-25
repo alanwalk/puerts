@@ -10,7 +10,7 @@ on:
         - "1"
         - "2"
         - "3"
-        default: '1'
+        default: '3'
       config:
         type: choice
         description: Release Or Debug
@@ -59,7 +59,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildAndroidQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
@@ -104,7 +104,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildOHOSQuickJS
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
@@ -135,7 +135,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildiOSQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
@@ -172,7 +172,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildOSXNodejs
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
@@ -209,7 +209,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
@@ -246,7 +246,7 @@ jobs:
           config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_10.6.194
-          websocket: ${{ github.event.inputs.websocket || '1' }}
+          websocket: ${{ github.event.inputs.websocket || '3' }}
       - name: BuildWindowsQuickjs
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
