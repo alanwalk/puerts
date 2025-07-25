@@ -21,7 +21,7 @@ inputs:
       - ia32
   websocket:
     description: enable websocket
-    default: '0'
+    default: '1'
   build_proj_dir:
     description: 'build project dir'     
     required: false
