@@ -32,6 +32,24 @@ inputs:
 runs:
   using: "composite"
   steps:
+    # 新增 NASM 安装步骤
+    - name: Install NASM
+      shell: powershell
+      run: |
+        # 下载并安装 NASM
+        $url = "https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip"
+        $output = "$env:RUNNER_TEMP\nasm.zip"
+        Invoke-WebRequest -Uri $url -OutFile $output
+        
+        # 解压并添加到 PATH
+        Expand-Archive -Path $output -DestinationPath "$env:RUNNER_TEMP\nasm"
+        $nasmPath = "$env:RUNNER_TEMP\nasm\nasm-2.16.01"
+        echo "NASM installed at: $nasmPath"
+        echo "$nasmPath" | Out-File -Append -FilePath $env:GITHUB_PATH -Encoding utf8
+        
+        # 验证安装
+        nasm --version
+
     - name: Build
       shell: powershell
       run: |
