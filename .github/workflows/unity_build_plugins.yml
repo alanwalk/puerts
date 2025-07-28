@@ -45,6 +45,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildAndroid_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
@@ -85,6 +86,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOHOS_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
@@ -112,6 +114,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildiOS_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
@@ -144,6 +147,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildOSX_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
@@ -176,6 +180,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildWindows_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
@@ -208,6 +213,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
+          websocket: ${{ github.event.inputs.websocket || '1' }}
       - name: BuildLinux_V8_10_6
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
