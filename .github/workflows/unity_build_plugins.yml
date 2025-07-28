@@ -11,17 +11,13 @@ on:
         - "2"
         - "3"
         default: '1'
-  push:
-    paths: 
-      - unity/native_src/**
-      - unity/cli/**
-      - unreal/Puerts/Source/JsEnv/Private/V8InspectorImpl.cpp
-      - unreal/Puerts/Source/JsEnv/Private/WebSocketImpl.cpp
-      - unreal/Puerts/Source/JsEnv/Private/V8InspectorImpl.h
-      - unreal/Puerts/Source/JsEnv/Private/PromiseRejectCallback.hpp
-      - unreal/Puerts/ThirdParty/**
-      - .github/workflows/unity_build_plugins.yml
-      - .github/workflows/composites/unity-build-plugins/**
+      config:
+        type: choice
+        description: Release Or Debug
+        options:
+        - "Release"
+        - "Debug"
+        default: 'Release'
 
 env:
   RUNID: 613573412
@@ -43,6 +39,7 @@ jobs:
       - name: BuildAndroid
         uses: ./.github/workflows/composites/unity-build-plugins/android/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
@@ -63,6 +60,7 @@ jobs:
       - name: BuildOHOS
         uses: ./.github/workflows/composites/unity-build-plugins/ohos/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
@@ -75,6 +73,7 @@ jobs:
       - name: BuildiOS
         uses: ./.github/workflows/composites/unity-build-plugins/ios/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
@@ -87,6 +86,7 @@ jobs:
       - name: BuildOSX
         uses: ./.github/workflows/composites/unity-build-plugins/osx/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
@@ -99,6 +99,7 @@ jobs:
       - name: BuildWindows
         uses: ./.github/workflows/composites/unity-build-plugins/windows/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
@@ -111,6 +112,7 @@ jobs:
       - name: BuildLinux
         uses: ./.github/workflows/composites/unity-build-plugins/linux/
         with:
+          config: ${{ github.event.inputs.config }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           backend: v8_9.4.146.24
           websocket: ${{ github.event.inputs.websocket || '1' }}
