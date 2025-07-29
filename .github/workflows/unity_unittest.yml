@@ -2,18 +2,7 @@ name: unity unittest
 
 on: 
   workflow_dispatch:
-  push:
-    paths: 
-      - unity/Assets/**
-      - unity/test/**
-      - unity/native_src/**
-      - unity/cli/**
-      - unreal/Puerts/Source/JsEnv/Private/V8InspectorImpl.cpp
-      - unreal/Puerts/Source/JsEnv/Private/V8InspectorImpl.h
-      - unreal/Puerts/Source/JsEnv/Private/WebSocketImpl.cpp
-      - unreal/Puerts/Source/JsEnv/Private/PromiseRejectCallback.hpp
-      - .github/workflows/unity_unittest.yml
-  
+
 env:
   RUNID: 613573412
 
