@@ -413,7 +413,16 @@ if ( WITH_WEBSOCKET EQUAL 2 )
     FetchContent_MakeAvailable(wolfssl)
     
     target_compile_definitions(wolfssl PUBLIC WOLFSSL_OPENSSLEXTRA WOLFSSL_OPENSSLALL OPENSSL_EXTRA OPENSSL_ALL HAVE_EX_DATA WOLFSSL_OPENSSH)
-    
+
+    # For iOS static library, we need to ensure wolfssl objects are included
+    if ( APPLE AND IOS )
+        # Method 1: Use target objects (preferred)
+        target_sources(puerts PRIVATE $<TARGET_OBJECTS:wolfssl>)
+        
+        # Method 2: Alternative approach - use whole archive linking
+        # target_link_options(puerts PRIVATE "-Wl,-force_load,$<TARGET_FILE:wolfssl>")
+    endif()
+
     target_link_libraries(puerts wolfssl)
     
     target_include_directories(puerts PRIVATE ${wolfssl_SOURCE_DIR}/wolfssl)
