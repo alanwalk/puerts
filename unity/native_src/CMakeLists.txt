@@ -9,6 +9,15 @@ cmake_policy(SET CMP0091 NEW)
 
 project(PuertsPlugin LANGUAGES C CXX)
 
+# -------------------------------
+# 对 Android 平台开启 GWP-ASan
+# -------------------------------
+if(ANDROID)
+    message(STATUS "Enabling GWP-ASan for all future targets")
+    add_compile_options(-fsanitize=gwp-asan)
+    add_link_options(-fsanitize=gwp-asan)
+endif()
+
 include(CheckCCompilerFlag)
 
 option ( USING_V8 "using v8" ON )
@@ -25,16 +34,6 @@ if ( IOS )
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fembed-bitcode")
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode")
 endif ()
-
-# 测试GWP-ASan开关开始
-add_library(native-lib SHARED native-lib.cpp)
-
-target_compile_options(native-lib PRIVATE -fsanitize=gwp-asan)
-target_link_options(native-lib PRIVATE -fsanitize=gwp-asan)
-
-find_library(log-lib log)
-target_link_libraries(native-lib ${log-lib})
-# 测试GWP-ASan开关结束
 
 find_path(PUERTS_PROJECT_DIR NAMES SConstruct
     PATHS 
