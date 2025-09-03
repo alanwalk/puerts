@@ -26,6 +26,9 @@ if ( IOS )
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fembed-bitcode")
 endif ()
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=gwp-asan")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=gwp-asan")
+
 find_path(PUERTS_PROJECT_DIR NAMES SConstruct
     PATHS 
     ${PROJECT_SOURCE_DIR}
