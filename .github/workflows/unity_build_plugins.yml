@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: |
           cd ~
-          rm -rf ~/android-ndk-r21b
+          rm -rf ~/android-ndk-r23c
           wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r23c-linux.zip
           sudo apt install unzip -y
           unzip -q NDK
