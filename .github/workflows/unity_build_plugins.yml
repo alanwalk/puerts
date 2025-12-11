@@ -66,7 +66,7 @@ jobs:
           websocket: ${{ github.event.inputs.websocket || '1' }}
 
   ios:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -79,7 +79,7 @@ jobs:
           websocket: ${{ github.event.inputs.websocket || '1' }}
 
   osx:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v3
